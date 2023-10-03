@@ -5,16 +5,37 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Log In</title>
     <link rel="stylesheet" href="/CSS/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 </head>
 <body>
     <section class="layout">
-        <form action="/academy-students" method="post">
-            <h1>Hello New Student</h1>
-            <p>Welcome to Our Academy</p>
-            <input type="text" name="student">
-            <button>Log Up</button>
-            <a href="/students">List Students</a>
+        <div class="greeting m-auto text-center">
+            <h1 class="fs-1 fw-bold  mb-3">Hello, New Student</h1>
+            <p class="fs-3 text-success fw-bold mb-3">Welcome to Our Academy</p>
+        </div>
+        <form action="/academy-students" method="post" id="create-item">
+            <h1 class="fs-4 fw-bold mb-5 text-center font-monospace ">Log Up to our University Website and become one of the luckiest student.</h1>
+            <div class="form-floating mb-2">
+                <input type="text" class="form-control" id="f_name" name="f_name" placeholder="First Name">
+                <label for="f_name">First Name</label>
+            </div>
+            <div class="form-floating mb-2">
+                <input type="text" class="form-control" id="s_name" name="s_name" placeholder="Second Name">
+                <label for="s_name">Second Name</label>
+            </div>
+            <div class="form-floating mb-2">
+                <input type="date" class="form-control" id="birth" name="birth" placeholder="Date Birth">
+                <label for="birth">Date Birth</label>
+            </div>
+            <div class="form-floating mb-2">
+                <input type="email" class="form-control" id="email" name="email" placeholder="Email">
+                <label for="email">Email</label>
+            </div>
+            <button class="btn btn-outline-success p-4 fw-bold log-up">Log Up</button>
+            <a href="/students" class="btn btn-outline-danger p-4 mt-3 fw-bold">List Students</a>
         </form>
     </section>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="/JS/browser.js"></script>
 </body>
 </html>

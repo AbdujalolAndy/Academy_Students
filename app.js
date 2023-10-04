@@ -2,6 +2,7 @@ const express = require("express");
 const morgan = require("morgan");
 const helmet = require("helmet");
 const app = express();
+const mongodb = require("mongodb");
 
 //MongoDB
 const db = require("./server").db();
@@ -49,6 +50,33 @@ app.post("/academy-students", (req, res) => {
       } else {
         res.json({ state: "Successfully" });
       }
+    }
+  );
+});
+
+app.post("/update-item", (req, res) => {
+  console.log("done");
+  db.collection("academy-students").findOneAndUpdate(
+    { _id: new mongodb.ObjectId(req.body.id) },
+    { $set: { first_Name: req.body.new_name } },
+    (err, data) => {
+      if (err) {
+        res.end("Something went wrong");
+      } else {
+        res.json({ state: "Success" });
+      }
+    }
+  );
+});
+
+app.post("/delete-item", (req, res) => {
+  const id = req.body.id;
+  db.collection("academy-students").deleteOne(
+    { _id: new mongodb.ObjectId(id) },
+    (err, data) => {
+      if (err) {
+        res.end("Something went wrong");
+      } else [res.json({ state: "Success" })];
     }
   );
 });

@@ -1,8 +1,10 @@
 const mongodb = require('mongodb');
 const http = require('http');
 const colors = require('colors/safe');
+const env = require('dotenv');
+env.config()
 
-const databaseAdr = 'mongodb+srv://andy:bav52w6vfTXIq5Cy@cluster0.4ahexgk.mongodb.net/Academy_Students'
+const databaseAdr = process.env.MONGODB_URL
 mongodb.connect(databaseAdr, {useUrlParser:true,useUnifiedTopology:true}, (err,client)=>{
     if(err){
         console.log(colors.red('Something went wrong with connection to MongoDB server'))

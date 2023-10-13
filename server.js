@@ -2,7 +2,7 @@ const mongodb = require('mongodb');
 const http = require('http');
 const colors = require('colors/safe');
 const env = require('dotenv');
-env.config()
+env.config();
 
 const databaseAdr = process.env.MONGODB_URL
 mongodb.connect(databaseAdr, {useUrlParser:true,useUnifiedTopology:true}, (err,client)=>{
